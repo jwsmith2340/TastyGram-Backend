@@ -1,0 +1,25 @@
+[
+    {
+        "title": "How to make delicious Chilaquiles quick and easy!",
+        "image": "https://i.imgur.com/61jCiwd.jpg",
+        "description": "Chilaquiles is a traditional Mexican breakfast dish consisting of corn tortillas cut into quarters and lightly fried.",
+        "ingredients": [
+            {
+                "first": "Twelve corn tortillas, preferably stale, or left out overnight to dry out, quartered cut or into six wedges",
+                "second": "corn oil",
+                "third": "Salt",
+                "fourth": "One One&Half to Two cups red chile sauce or salsa verde, store-bought or homemade",
+                "fifth": "A few sprigs of epazote, optional"
+            }
+        ],
+        "garnishes": [
+            {
+                "first": "Cotija cheese or queso fresco",
+                "second": "Crema Mexicana or creme fraiche",
+                "third": "Cilantro, chopped",
+                "fourth": "One red onion, chopped",
+                "fifth": "Avocado, sliced or roughly chopped"
+            }
+        ]
+    }
+]
