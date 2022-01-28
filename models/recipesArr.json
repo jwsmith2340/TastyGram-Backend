@@ -21,5 +21,19 @@
                 "fifth": "Avocado, sliced or roughly chopped"
             }
         ]
-    }
+    },
+        {
+            "title": "DIY Popeyes Chicken Sandwich",
+            "image": "https://i.imgur.com/LfsaF0h.jpg",
+            "description": "Popeyes Buttermilk fried chicken sandwich with spicy mayo",
+            "ingredients": [
+                {
+                    "first": "chicken breasts",
+                    "second": "buttermilk and brioche buns",
+                    "third": "flour",
+                    "fourth": "corn starch",
+                    "fifth": "spices"
+                }
+            ]
+        }
 ]
