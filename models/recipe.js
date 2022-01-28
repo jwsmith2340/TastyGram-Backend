@@ -9,7 +9,7 @@ const recipeSchema = new mongoose.Schema({
     ingredients: String,
 }, {timestamps: true});
 
-module.exports = mongoose.model('recipe', recipeSchema);
+module.exports = mongoose.model('Recipe', recipeSchema);
 
        
 
