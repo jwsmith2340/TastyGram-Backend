@@ -1,6 +1,7 @@
 const express = require('express');
 const recipesRouter = express.Router();
 const Recipe = require('../models/recipe')
+const recipesArr = require ('../models/recipesArr.json')
 
 // test route
 // recipesRouter.get("/", (req, res) => {
@@ -17,6 +18,10 @@ recipesRouter.get("/", async (req, res) => {
         res.status(400).json(error);
     }
 });
+
+recipesRouter.get("/api", (req, res) => {
+    res.json(recipesArr);
+})
 
 // Recipe Create Route
 recipesRouter.post("/", async (req, res) => {
