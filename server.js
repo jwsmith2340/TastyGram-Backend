@@ -34,9 +34,9 @@ app.use(methodOverride('_method'));
 // Routes
 // test route
 app.get("/", (req, res) => {
-    res.redirect('/recipes');
+    res.redirect('/recipes/api');
 });
-app.use('/recipes', recipesController);
+app.use('/recipes/api', recipesController);
 
 
 // Listener

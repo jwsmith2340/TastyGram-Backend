@@ -19,7 +19,7 @@ recipesRouter.get("/", async (req, res) => {
     }
 });
 
-recipesRouter.get("/api", (req, res) => {
+recipesRouter.get("/", (req, res) => {
     res.json(recipesArr);
 })
 
