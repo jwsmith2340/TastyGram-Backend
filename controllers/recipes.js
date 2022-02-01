@@ -3,26 +3,26 @@ const recipesRouter = express.Router();
 const Recipe = require('../models/recipe')
 const recipesArr = require ('../models/recipesArr.json')
 
-recipesRouter.use(async function(req, res, next) {
-    try{
-        const token = req.get('Authorization');
-        if(!token) return next();
+// recipesRouter.use(async function(req, res, next) {
+//     try{
+//         const token = req.get('Authorization');
+//         if(!token) return next();
 
-        const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''));
-        if(!user) throw new Error('Something went wrong');
+//         const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''));
+//         if(!user) throw new Error('Something went wrong');
 
-        req.user = user;
-        next();
-    } catch (error) {
-        res.status(400).json(error);
-    }
-});
+//         req.user = user;
+//         next();
+//     } catch (error) {
+//         res.status(400).json(error);
+//     }
+// });
 
 
-function isAuthenticated(req, res, next) {
-    if(!req.user) return res.status(401).json({message: 'You must be logged in first'})
-    next();
-}
+// function isAuthenticated(req, res, next) {
+//     if(!req.user) return res.status(401).json({message: 'You must be logged in first'})
+//     next();
+// }
 
 // test route
 // recipesRouter.get("/", (req, res) => {
@@ -45,7 +45,7 @@ recipesRouter.get("/", (req, res) => {
 })
 
 // Recipe Create Route
-recipesRouter.post("/", isAuthenticated, async (req, res) => {
+recipesRouter.post("/", async (req, res) => {
     
     try {
         // send all recipes
