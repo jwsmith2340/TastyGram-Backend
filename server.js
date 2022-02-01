@@ -6,12 +6,9 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const admin = require("firebase-admin");
 
-const methodOverride = require('method-override')
-const expressSession = require('express-session')
 require("dotenv").config();
 // Pull PORT && MONGODB_URL
 const { PORT, MONGODB_URL, GOOGLE_CREDENTIALS } = process.env;
-
 
 
 const serviceAccount = JSON.parse(GOOGLE_CREDENTIALS);
@@ -26,10 +23,7 @@ const recipesController = require('./controllers/recipes');
 
 // Database Connection
 // Establishes Connection
-mongoose.connect(MONGODB_URL, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-});
+mongoose.connect(MONGODB_URL);
 // Connection Events
 const db = mongoose.connection
     db.on("open", () => console.log("You are connected to mongoose"));
@@ -40,15 +34,14 @@ const db = mongoose.connection
 app.use(cors()); // to prevent cors errors, open access to all origins
 app.use(morgan("dev")); // logging
 app.use(express.json()); // parse json bodies
-app.use(methodOverride('_method'));
 
 // app.use(async function(req, res, next) {
-//     try{
+//     try {
 //         const token = req.get('Authorization');
 //         if(!token) return next();
 
 //         const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''));
-//         if(!user) throw new Error('Something went wrong');
+//         if(!user) throw new Error('something went wrong');
 
 //         req.user = user;
 //         next();
@@ -59,9 +52,10 @@ app.use(methodOverride('_method'));
 
 
 // function isAuthenticated(req, res, next) {
-//     if(!req.user) return res.status(401).json({message: 'You must be logged in first'})
+//     if(!req.user) return res.status(401).json({message: 'you must be logged in first'})
 //     next();
 // }
+
 
 
 // Routes
