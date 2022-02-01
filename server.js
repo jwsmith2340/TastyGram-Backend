@@ -4,18 +4,18 @@ const app = express();
 const morgan = require("morgan");
 const cors = require("cors")
 const mongoose = require("mongoose")
-const admin = require("firebase-admin");
+// const admin = require("firebase-admin");
 
 require("dotenv").config();
 // Pull PORT && MONGODB_URL
-const { PORT, MONGODB_URL, GOOGLE_CREDENTIALS } = process.env;
+const { PORT, MONGODB_URL} = process.env;
 
 
-const serviceAccount = JSON.parse(GOOGLE_CREDENTIALS);
+// const serviceAccount = JSON.parse(GOOGLE_CREDENTIALS);
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
 
 
 // Controllers
