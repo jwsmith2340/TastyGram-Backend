@@ -7,6 +7,7 @@ const Recipe = require('../models/recipe')
 //     try {
 //         const token = req.get('Authorization');
 //         if(!token) return next();
+//         console.log(token)
 
 //         const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''));
 //         if(!user) throw new Error('something went wrong');

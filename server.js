@@ -8,7 +8,7 @@ const mongoose = require("mongoose")
 
 require("dotenv").config();
 // Pull PORT && MONGODB_URL
-const { PORT, MONGODB_URL} = process.env;
+const { PORT, MONGODB_URL, GOOGLE_CREDENTIALS} = process.env;
 
 
 // const serviceAccount = JSON.parse(GOOGLE_CREDENTIALS);
