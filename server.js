@@ -22,13 +22,13 @@ const { PORT, MONGODB_URL, GOOGLE_CREDENTIALS} = process.env;
 const recipesController = require('./controllers/recipes');
 
 // Database Connection
-// Establishes Connection
-mongoose.connect(MONGODB_URL);
-// Connection Events
-const db = mongoose.connection
-    db.on("open", () => console.log("You are connected to mongoose"));
-    db.on("close", () => console.log("You are disconnected from mongoose"));
-    db.on("error", (error) => console.log(error)); 
+// // Establishes Connection
+// mongoose.connect(MONGODB_URL);
+// // Connection Events
+// const db = mongoose.connection
+//     db.on("open", () => console.log("You are connected to mongoose"));
+//     db.on("close", () => console.log("You are disconnected from mongoose"));
+//     db.on("error", (error) => console.log(error)); 
 
 // Middleware
 app.use(cors()); // to prevent cors errors, open access to all origins
@@ -61,7 +61,7 @@ app.use(express.json()); // parse json bodies
 // Routes
 // test route
 app.get("/", (req, res) => {
-    res.redirect('/recipes/api');
+    res.send('Sup');
 });
 app.use('/recipes/api', recipesController);
 
