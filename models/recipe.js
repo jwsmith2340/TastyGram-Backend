@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const schema = mongoose.Schema;
 
 const recipeSchema = new mongoose.Schema({
     title: String,
@@ -10,6 +9,3 @@ const recipeSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 module.exports = mongoose.model('Recipe', recipeSchema);
-
-       
-

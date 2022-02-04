@@ -3,7 +3,6 @@ const app = express();
 const morgan = require("morgan");
 const cors = require("cors")
 const mongoose = require("mongoose")
-// const admin = require("firebase-admin");
 
 require("dotenv").config();
 
@@ -24,13 +23,10 @@ app.use(cors());
 app.use(morgan("dev")); 
 app.use(express.json()); 
 
-app.get("/", (req, res) => {
-    res.send('Sup');
+app.get("/*", (req, res) => {
+    res.redirect('/recipes/api');
 });
 
 app.use('/recipes/api', recipesController);
 
-
-
-// Listener
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
