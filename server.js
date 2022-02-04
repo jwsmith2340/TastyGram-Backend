@@ -23,10 +23,6 @@ app.use(cors());
 app.use(morgan("dev")); 
 app.use(express.json()); 
 
-app.get("/*", (req, res) => {
-    res.redirect('/recipes/api');
-});
-
 app.use('/recipes/api', recipesController);
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
