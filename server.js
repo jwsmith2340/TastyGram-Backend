@@ -1,4 +1,3 @@
-// Dependencies
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
@@ -7,63 +6,30 @@ const mongoose = require("mongoose")
 // const admin = require("firebase-admin");
 
 require("dotenv").config();
-// Pull PORT && MONGODB_URL
-const { PORT, MONGODB_URL, GOOGLE_CREDENTIALS} = process.env;
 
-
-// const serviceAccount = JSON.parse(GOOGLE_CREDENTIALS);
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount)
-// });
-
-
-// Controllers
 const recipesController = require('./controllers/recipes');
 
-// Database Connection
-// // Establishes Connection
-// mongoose.connect(MONGODB_URL);
-// // Connection Events
-// const db = mongoose.connection
-//     db.on("open", () => console.log("You are connected to mongoose"));
-//     db.on("close", () => console.log("You are disconnected from mongoose"));
-//     db.on("error", (error) => console.log(error)); 
+const { PORT, DATABASE_URI, GOOGLE_CREDENTIALS} = process.env;
 
-// Middleware
-app.use(cors()); // to prevent cors errors, open access to all origins
-app.use(morgan("dev")); // logging
-app.use(express.json()); // parse json bodies
+mongoose.connect(DATABASE_URI)
 
-// app.use(async function(req, res, next) {
-//     try {
-//         const token = req.get('Authorization');
-//         if(!token) return next();
+const db = mongoose.connection
 
-//         const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''));
-//         if(!user) throw new Error('something went wrong');
-
-//         req.user = user;
-//         next();
-//     } catch (error) {
-//         res.status(400).json(error);
-//     }
-// });
+db.on('connected', () => console.log('Connected to Mongo'))
+db.on('disconnected', () => console.log('Disconnected from Mongo')) 
+db.on('error', (err) => console.log('Error: ', err))
 
 
-// function isAuthenticated(req, res, next) {
-//     if(!req.user) return res.status(401).json({message: 'you must be logged in first'})
-//     next();
-// }
+app.use(cors()); 
+app.use(morgan("dev")); 
+app.use(express.json()); 
 
-
-
-// Routes
-// test route
 app.get("/", (req, res) => {
     res.send('Sup');
 });
+
 app.use('/recipes/api', recipesController);
+
 
 
 // Listener
